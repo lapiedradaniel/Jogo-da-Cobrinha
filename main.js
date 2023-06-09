@@ -77,9 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
     context.clearRect(0, 0, canvas.width, canvas.height);
 
     // Exibir mensagem de fim de jogo
-    context.fillStyle = 'red';
-    context.font = '30px Arial';
-    context.fillText('Game Over', canvas.width / 2 - 80, canvas.height / 2);
+    context.fillStyle = 'white';
+    context.font = '200px Arial';
+    context.fillText('Game Over', canvas.width / 8 - 80, canvas.height / 1.6);
   }
 
   // Adicionar o evento de pressionar tecla
