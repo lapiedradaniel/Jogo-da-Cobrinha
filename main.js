@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const gridWidth = canvas.width / gridSize;
   const gridHeight = canvas.height / gridSize;
 
+
   // Estado do jogo
   let snake = [{ x: 10, y: 10 }];
   let direction = 'right';
@@ -34,8 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
       gameOver();
       return;
     }
-	
-	   // Verificar colisão com a própria cobrinha
+
+    // Verificar colisão com a própria cobrinha
     if (snake.some(segment => segment.x === head.x && segment.y === head.y && segment !== head)) {
       gameOver();
       return;
@@ -53,8 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
       context.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize);
     });
 
+    for (var i = snake.length - 1; i > 1; i--) {
+      snake[i].x = snake[i - 1].x;
+      snake[i].y = snake[i - 1].y;
+
+    }
+
     // Agendar a próxima atualização
-    setTimeout(update, 1000 / 70);
+    setTimeout(update, 1000 / 50);
   }
 
   // Função para lidar com as teclas pressionadas
